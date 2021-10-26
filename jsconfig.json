@@ -4,5 +4,5 @@
     },
     "include": [
         "src"
-, "src/App.test.js"    ]
+, "src/__tests__/App.test.js"    ]
 }
