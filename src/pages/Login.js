@@ -20,7 +20,9 @@ function Login() {
     return (
         <>
             <div className="container-sm">
-                <div className="my-3"><span className="h1">SuperTeam</span></div>
+                <div className="my-3">
+                    <span className="h1">SuperTeam</span>
+                </div>
                 <h1 className="text-success">
                     Welcome, log in to create your super team!
                 </h1>
@@ -33,30 +35,28 @@ function Login() {
                 >
                     <Form className="form-group">
                         <div className="mt-4">
-                            <Field
-                                type="email"
-                                name="email"
-                                className="form-control col-sm-5 mb-3"
-                                placeholder="Your email"
-                                autoComplete="section-login email"
-                            />
-                            <ErrorMessage
-                                name="email"
-                                render={renderErrorMsg}
-                            />
-                            <div>
-                            <Field
-                                type="password"
-                                name="password"
-                                className="form-control col-sm-5 mb-3"
-                                placeholder="Your password"
-                                autoComplete="section-login current-password"
-                            />
-                            <ErrorMessage
-                                name="password"
-                                render={renderErrorMsg}
-                            />
-                            </div>
+                                <Field
+                                    type="email"
+                                    name="email"
+                                    className="form-control col-sm-5 mb-3"
+                                    placeholder="Your email"
+                                    autoComplete="section-login email"
+                                />
+                                <ErrorMessage
+                                    name="email"
+                                    render={renderErrorMsg}
+                                />
+                                <Field
+                                    type="password"
+                                    name="password"
+                                    className="form-control col-sm-5 mb-3"
+                                    placeholder="Your password"
+                                    autoComplete="section-login current-password"
+                                />
+                                <ErrorMessage
+                                    name="password"
+                                    render={renderErrorMsg}
+                                />
                             <button
                                 type="submit"
                                 className="btn btn-success btn-lg mt-3"
