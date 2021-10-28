@@ -1,10 +1,11 @@
+import SearchBox from 'components/Home/SearchBox'
 import React from 'react'
 
 function Home() {
     return (
-        <div>
-            Hola
-        </div>
+        <main>
+            <SearchBox />
+        </main>
     )
 }
 
