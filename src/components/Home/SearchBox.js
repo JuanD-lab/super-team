@@ -25,7 +25,7 @@ const SearchBox = () => {
             </Formik>
             {query !== "" ? (
                 <SearchSuggestions
-                    url={`https://superheroapi.com/api/895993884677140/search/${query}`}
+                    url={`${process.env.REACT_APP_SERVER_URL}/search/${query}`}
                     handle={handleSearch}
                 />
             ) : null}
