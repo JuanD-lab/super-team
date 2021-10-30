@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function HeroCard({ name, imgUrl, alt, height = "330px", isSearch }) {
     return (
-        <div className=" col-md-3">
+        <div className={isSearch ? "col-md-3" : "col-md-4"}>
             <div className="card d-flex flex-column my-3 text-center">
                 <img
                     className=" object-cover hero-item"
@@ -12,13 +12,16 @@ function HeroCard({ name, imgUrl, alt, height = "330px", isSearch }) {
                     height={height}
                 />
                 <h3 className="fs-5">{name}</h3>
-                {isSearch ? (
-                    <div className="py-3 card-body">
-                        <button className="btn btn-primary">Agregar</button>
-                    </div>
-                ) : (
-                    ""
-                )}
+                <div className="py-3 card-body">
+                    <a href={name} className="btn btn-primary mx-3">
+                        Detalles
+                    </a>
+                    {isSearch ? (
+                        <button className="btn btn-success">Agregar</button>
+                    ) : (
+                        <button className="btn btn-danger">Eliminar</button>
+                    )}
+                </div>
             </div>
         </div>
     );
