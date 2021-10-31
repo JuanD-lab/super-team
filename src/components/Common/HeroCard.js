@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "wouter";
 import { useDispatch } from "react-redux";
 import { addHeroToTeam, deleteHeroFromTeam } from "redux/heroesReducer";
 import Button from "components/Common/Button";
@@ -50,9 +51,9 @@ function HeroCard({
                             ))}
                         </div>
                     )}
-                    <a href="/" className="btn btn-primary mx-3 text-center">
+                    <Link to={`/hero/${id}`} className="btn btn-primary mx-3 text-center">
                         Detalles
-                    </a>
+                    </Link>
                     {isSearch ? (
                         <Button
                             classType="success"

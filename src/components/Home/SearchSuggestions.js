@@ -18,7 +18,6 @@ const SearchSuggestions = ({ url }) => {
         promise.catch(() => {});
     }, [url]);
 
-    console.log(results);
     const resultsList = results.map((value) => (
         <HeroCard
             id={value.id}
