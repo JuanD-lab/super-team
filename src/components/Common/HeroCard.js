@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { addHeroToTeam, deleteHeroFromTeam } from "redux/heroesReducer";
+import Button from "components/Common/Button";
 
 function HeroCard({
     id,
@@ -49,13 +50,14 @@ function HeroCard({
                             ))}
                         </div>
                     )}
-                    <a href={id} className="btn btn-primary mx-3 text-center">
+                    <a href="/" className="btn btn-primary mx-3 text-center">
                         Detalles
                     </a>
                     {isSearch ? (
-                        <button
-                            className="btn btn-success text-center"
-                            onClick={() =>
+                        <Button
+                            type="success"
+                            label="Agregar"
+                            action={() =>
                                 dispatch(
                                     addHeroToTeam({
                                         id,
@@ -66,20 +68,9 @@ function HeroCard({
                                     })
                                 )
                             }
-                        >
-                            Agregar
-                        </button>
+                        />
                     ) : (
-                        <button
-                            className="btn btn-danger"
-                            onClick={() =>
-                                dispatch(
-                                    deleteHeroFromTeam(id)
-                                )
-                            }
-                        >
-                            Eliminar
-                        </button>
+                        <Button label="Eliminar" type="danger" action={() => dispatch(deleteHeroFromTeam(id))} />
                     )}
                 </div>
             </div>
