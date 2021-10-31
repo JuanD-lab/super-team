@@ -55,7 +55,7 @@ function HeroCard({
                     </a>
                     {isSearch ? (
                         <Button
-                            type="success"
+                            classType="success"
                             label="Agregar"
                             action={() =>
                                 dispatch(
@@ -70,7 +70,11 @@ function HeroCard({
                             }
                         />
                     ) : (
-                        <Button label="Eliminar" type="danger" action={() => dispatch(deleteHeroFromTeam(id))} />
+                        <Button
+                            label="Eliminar"
+                            classType="danger"
+                            action={() => dispatch(deleteHeroFromTeam(id))}
+                        />
                     )}
                 </div>
             </div>

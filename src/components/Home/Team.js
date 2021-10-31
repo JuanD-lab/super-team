@@ -28,6 +28,16 @@ function Team() {
                     </p>
                 )}
             </div>
+            <HeroCard
+            id="1"
+            key="rr"
+            name="batman"
+            imgUrl="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+            powerstats={{speed: 10}}
+            alt="batman"
+            height="400px"
+            isSearch={false}
+        />
         </div>
     );
 }

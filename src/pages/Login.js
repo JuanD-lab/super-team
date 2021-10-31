@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { useDispatch } from "react-redux";
 import { logIn } from "../redux/authReducer";
+import Button from "components/Common/Button";
 
 function Login() {
     const dispatch = useDispatch();
@@ -35,34 +36,33 @@ function Login() {
                 >
                     <Form className="form-group">
                         <div className="mt-4">
-                                <Field
-                                    type="email"
-                                    name="email"
-                                    className="form-control col-sm-5 mb-3"
-                                    placeholder="Your email"
-                                    autoComplete="section-login email"
-                                />
-                                <ErrorMessage
-                                    name="email"
-                                    render={renderErrorMsg}
-                                />
-                                <Field
-                                    type="password"
-                                    name="password"
-                                    className="form-control col-sm-5 mb-3"
-                                    placeholder="Your password"
-                                    autoComplete="section-login current-password"
-                                />
-                                <ErrorMessage
-                                    name="password"
-                                    render={renderErrorMsg}
-                                />
-                            <button
+                            <Field
+                                type="email"
+                                name="email"
+                                className="form-control col-sm-5 mb-3"
+                                placeholder="Your email"
+                                autoComplete="section-login email"
+                            />
+                            <ErrorMessage
+                                name="email"
+                                render={renderErrorMsg}
+                            />
+                            <Field
+                                type="password"
+                                name="password"
+                                className="form-control col-sm-5 mb-3"
+                                placeholder="Your password"
+                                autoComplete="section-login current-password"
+                            />
+                            <ErrorMessage
+                                name="password"
+                                render={renderErrorMsg}
+                            />
+                            <Button
                                 type="submit"
-                                className="btn btn-success btn-lg mt-3"
-                            >
-                                Log In
-                            </button>
+                                classType="success"
+                                label="Log In"
+                            />
                         </div>
                     </Form>
                 </Formik>
