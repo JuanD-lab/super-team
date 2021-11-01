@@ -2,16 +2,23 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../redux/authReducer";
+import Button from "components/Common/Button";
 
 function Login() {
     const dispatch = useDispatch();
+    const userstate = useSelector((store) => store.auth);
 
     const validationsSquema = Yup.object({
         email: Yup.string().email().required(),
         password: Yup.string().required(),
     });
+    const alert = (
+        <div className="alert alert-danger my-3" role="alert">
+            Wrong Credentials
+        </div>
+    );
 
     const renderErrorMsg = (message) => (
         <p className="text-danger">{message}</p>
@@ -35,37 +42,39 @@ function Login() {
                 >
                     <Form className="form-group">
                         <div className="mt-4">
-                                <Field
-                                    type="email"
-                                    name="email"
-                                    className="form-control col-sm-5 mb-3"
-                                    placeholder="Your email"
-                                    autoComplete="section-login email"
-                                />
-                                <ErrorMessage
-                                    name="email"
-                                    render={renderErrorMsg}
-                                />
-                                <Field
-                                    type="password"
-                                    name="password"
-                                    className="form-control col-sm-5 mb-3"
-                                    placeholder="Your password"
-                                    autoComplete="section-login current-password"
-                                />
-                                <ErrorMessage
-                                    name="password"
-                                    render={renderErrorMsg}
-                                />
-                            <button
+                            <Field
+                                type="email"
+                                name="email"
+                                className="form-control col-sm-5 mb-3"
+                                placeholder="Your email"
+                                autoComplete="section-login email"
+                            />
+                            <ErrorMessage
+                                name="email"
+                                render={renderErrorMsg}
+                            />
+                            <Field
+                                type="password"
+                                name="password"
+                                className="form-control col-sm-5 mb-3"
+                                placeholder="Your password"
+                                autoComplete="section-login current-password"
+                            />
+                            <ErrorMessage
+                                name="password"
+                                render={renderErrorMsg}
+                            />
+                            <Button
                                 type="submit"
-                                className="btn btn-success btn-lg mt-3"
-                            >
-                                Log In
-                            </button>
+                                classType="success"
+                                label="Log In"
+                            />
                         </div>
                     </Form>
                 </Formik>
+                {userstate?.user === "Request failed with status code 401"
+                    ? alert
+                    : null}
             </div>
         </>
     );

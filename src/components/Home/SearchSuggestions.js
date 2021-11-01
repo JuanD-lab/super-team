@@ -20,8 +20,11 @@ const SearchSuggestions = ({ url }) => {
 
     const resultsList = results.map((value) => (
         <HeroCard
+            id={value.id}
             name={value.name}
             imgUrl={value.image.url}
+            isBad={value.biography.alignment}
+            powerstats={value.powerstats}
             alt={value.name}
             isSearch={true}
             key={`SearchHero-${value.name}${value.id}`}

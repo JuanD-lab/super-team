@@ -10,3 +10,8 @@
     height: 430px !important;
   }
 }
+
+.banner-detail {
+  /* height: 500px; */
+  width: 430px;
+}
