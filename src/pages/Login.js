@@ -2,17 +2,23 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../redux/authReducer";
 import Button from "components/Common/Button";
 
 function Login() {
     const dispatch = useDispatch();
+    const userstate = useSelector((store) => store.auth);
 
     const validationsSquema = Yup.object({
         email: Yup.string().email().required(),
         password: Yup.string().required(),
     });
+    const alert = (
+        <div className="alert alert-danger my-3" role="alert">
+            Wrong Credentials
+        </div>
+    );
 
     const renderErrorMsg = (message) => (
         <p className="text-danger">{message}</p>
@@ -66,6 +72,9 @@ function Login() {
                         </div>
                     </Form>
                 </Formik>
+                {userstate?.user === "Request failed with status code 401"
+                    ? alert
+                    : null}
             </div>
         </>
     );

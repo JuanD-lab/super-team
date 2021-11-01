@@ -51,7 +51,7 @@ function HeroCard({
                             ))}
                         </div>
                     )}
-                    <Link to={`/hero/${id}`} className="btn btn-primary mx-3 text-center">
+                    <Link to={`/hero/${id}`} className="btn btn-primary text-center">
                         Detalles
                     </Link>
                     {isSearch ? (

@@ -4,9 +4,11 @@ import { useRoute } from "wouter";
 
 function HerodDetails() {
     const [match, params] = useRoute("/hero/:id");
-    const url = `${process.env.REACT_APP_SERVER_URL}/hero/${params.id}`;
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    const url = `${process.env.REACT_APP_SERVER_URL}/hero/${params.id}`;
+    
     useEffect(() => {
         const promise = axios(url);
         promise.then((res) => {
@@ -15,6 +17,7 @@ function HerodDetails() {
         });
         promise.catch(() => {});
     }, [url]);
+    
     return (
         <div className="container d-flex flex-wrap mt-3">
             {loading ? (
